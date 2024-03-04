@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,10 +14,11 @@ namespace Empleados
             public int NumeroEmpleado;
             public string NombreCompleto;
             public decimal SueldoPorHora;
-            public decimal HorasTrabajadas;
+            public Dictionary<string, decimal> HorasTrabajadasPorMes;
         }
 
         List<Empleado> listaEmpleados = new List<Empleado>();
+
         public Form1()
         {
             InitializeComponent();
@@ -40,6 +42,7 @@ namespace Empleados
             nuevoEmpleado.NumeroEmpleado = int.Parse(textBoxNoEmpleado.Text);
             nuevoEmpleado.NombreCompleto = textBoxNomEmpleado.Text;
             nuevoEmpleado.SueldoPorHora = sueldo;
+            nuevoEmpleado.HorasTrabajadasPorMes = new Dictionary<string, decimal>();
 
             listaEmpleados.Add(nuevoEmpleado);
 
@@ -76,7 +79,16 @@ namespace Empleados
                         int noEmpleado = int.Parse(datos[0]);
                         if (noEmpleado == empleadoSeleccionado.NumeroEmpleado)
                         {
-                            empleadoSeleccionado.HorasTrabajadas += decimal.Parse(datos[1]);
+                            string mes = datos[2];
+                            decimal horasTrabajadas = decimal.Parse(datos[1]);
+                            if (empleadoSeleccionado.HorasTrabajadasPorMes.ContainsKey(mes))
+                            {
+                                empleadoSeleccionado.HorasTrabajadasPorMes[mes] += horasTrabajadas;
+                            }
+                            else
+                            {
+                                empleadoSeleccionado.HorasTrabajadasPorMes.Add(mes, horasTrabajadas);
+                            }
                         }
                     }
                 }
@@ -95,14 +107,38 @@ namespace Empleados
 
             Empleado empleadoSeleccionado = listaEmpleados.FirstOrDefault(emp => emp.NumeroEmpleado == numeroEmpleadoSeleccionado);
 
-            decimal salarioTotal = empleadoSeleccionado.SueldoPorHora * empleadoSeleccionado.HorasTrabajadas;
+            if (empleadoSeleccionado.Equals(default(Empleado)))
+            {
+                MessageBox.Show("Empleado no encontrado.");
+                return;
+            }
 
-            MessageBox.Show($"El salario total del empleado seleccionado es: {salarioTotal.ToString("C")}", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
+            if (!decimal.TryParse(textBoxHorasMes.Text, out decimal horasTrabajadas))
+            {
+                MessageBox.Show("Por favor, ingresa un valor numérico válido para las horas trabajadas.");
+                return;
+            }
 
+            string mesTrabajo = textBoxMes.Text;
+            if (string.IsNullOrWhiteSpace(mesTrabajo))
+            {
+                MessageBox.Show("Por favor, ingresa un valor válido para el mes trabajado.");
+                return;
+            }
+
+            if (empleadoSeleccionado.HorasTrabajadasPorMes.ContainsKey(mesTrabajo))
+            {
+                empleadoSeleccionado.HorasTrabajadasPorMes[mesTrabajo] += horasTrabajadas;
+            }
+            else
+            {
+                empleadoSeleccionado.HorasTrabajadasPorMes.Add(mesTrabajo, horasTrabajadas);
+            }
+
+            MessageBox.Show("Datos del empleado guardados.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -118,9 +154,24 @@ namespace Empleados
 
             Empleado empleadoSeleccionado = listaEmpleados.FirstOrDefault(emp => emp.NumeroEmpleado == numeroEmpleadoSeleccionado);
 
-            decimal salarioTotal = empleadoSeleccionado.SueldoPorHora * empleadoSeleccionado.HorasTrabajadas;
+            if (empleadoSeleccionado.Equals(default(Empleado)))
+            {
+                MessageBox.Show("Empleado no encontrado.");
+                return;
+            }
 
-            dataGridView1.Rows.Add(empleadoSeleccionado.NumeroEmpleado, empleadoSeleccionado.NombreCompleto, empleadoSeleccionado.SueldoPorHora, empleadoSeleccionado.HorasTrabajadas, salarioTotal);
+            foreach (var par in empleadoSeleccionado.HorasTrabajadasPorMes)
+            {
+                decimal salarioMes = empleadoSeleccionado.SueldoPorHora * par.Value;
+                dataGridView1.Rows.Add(empleadoSeleccionado.NumeroEmpleado, empleadoSeleccionado.NombreCompleto, empleadoSeleccionado.SueldoPorHora, par.Key, par.Value, salarioMes);
+            }
+        }
+
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
