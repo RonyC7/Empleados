@@ -48,6 +48,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.NoEmpleados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SueldoHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HorasTrabajadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalarioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +91,13 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NoEmpleados,
+            this.Nombre,
+            this.SueldoHora,
+            this.Mes,
+            this.HorasTrabajadas,
+            this.SalarioTotal});
             this.dataGridView1.Location = new System.Drawing.Point(27, 244);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -193,6 +206,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "Ingresar Datos";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -211,6 +225,49 @@
             this.button4.TabIndex = 19;
             this.button4.Text = "Mostrar Empleados";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // NoEmpleados
+            // 
+            this.NoEmpleados.HeaderText = "No Empleado";
+            this.NoEmpleados.MinimumWidth = 6;
+            this.NoEmpleados.Name = "NoEmpleados";
+            this.NoEmpleados.Width = 125;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre empleado";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 125;
+            // 
+            // SueldoHora
+            // 
+            this.SueldoHora.HeaderText = "Sueldo Por Hora";
+            this.SueldoHora.MinimumWidth = 6;
+            this.SueldoHora.Name = "SueldoHora";
+            this.SueldoHora.Width = 125;
+            // 
+            // Mes
+            // 
+            this.Mes.HeaderText = "Mes de trabajo";
+            this.Mes.MinimumWidth = 6;
+            this.Mes.Name = "Mes";
+            this.Mes.Width = 125;
+            // 
+            // HorasTrabajadas
+            // 
+            this.HorasTrabajadas.HeaderText = "Total Horas Trabajadas";
+            this.HorasTrabajadas.MinimumWidth = 6;
+            this.HorasTrabajadas.Name = "HorasTrabajadas";
+            this.HorasTrabajadas.Width = 125;
+            // 
+            // SalarioTotal
+            // 
+            this.SalarioTotal.HeaderText = "Salario Total";
+            this.SalarioTotal.MinimumWidth = 6;
+            this.SalarioTotal.Name = "SalarioTotal";
+            this.SalarioTotal.Width = 125;
             // 
             // Form1
             // 
@@ -267,6 +324,12 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NoEmpleados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SueldoHora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HorasTrabajadas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalarioTotal;
     }
 }
 
