@@ -94,16 +94,16 @@
             // 
             // textBoxHorasMes
             // 
-            this.textBoxHorasMes.Location = new System.Drawing.Point(632, 85);
+            this.textBoxHorasMes.Location = new System.Drawing.Point(636, 86);
             this.textBoxHorasMes.Name = "textBoxHorasMes";
-            this.textBoxHorasMes.Size = new System.Drawing.Size(184, 22);
+            this.textBoxHorasMes.Size = new System.Drawing.Size(222, 22);
             this.textBoxHorasMes.TabIndex = 6;
             // 
             // textBoxMes
             // 
-            this.textBoxMes.Location = new System.Drawing.Point(632, 143);
+            this.textBoxMes.Location = new System.Drawing.Point(636, 144);
             this.textBoxMes.Name = "textBoxMes";
-            this.textBoxMes.Size = new System.Drawing.Size(184, 22);
+            this.textBoxMes.Size = new System.Drawing.Size(222, 22);
             this.textBoxMes.TabIndex = 7;
             // 
             // label1
@@ -153,9 +153,9 @@
             // comboBoxNoEmpleado
             // 
             this.comboBoxNoEmpleado.FormattingEnabled = true;
-            this.comboBoxNoEmpleado.Location = new System.Drawing.Point(632, 24);
+            this.comboBoxNoEmpleado.Location = new System.Drawing.Point(636, 25);
             this.comboBoxNoEmpleado.Name = "comboBoxNoEmpleado";
-            this.comboBoxNoEmpleado.Size = new System.Drawing.Size(184, 24);
+            this.comboBoxNoEmpleado.Size = new System.Drawing.Size(222, 24);
             this.comboBoxNoEmpleado.TabIndex = 13;
             // 
             // label5
@@ -187,9 +187,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(864, 25);
+            this.button2.Location = new System.Drawing.Point(869, 26);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 23);
+            this.button2.Size = new System.Drawing.Size(143, 29);
             this.button2.TabIndex = 17;
             this.button2.Text = "Ingresar Datos";
             this.button2.UseVisualStyleBackColor = true;
@@ -198,7 +198,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(632, 203);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 23);
+            this.button3.Size = new System.Drawing.Size(139, 35);
             this.button3.TabIndex = 18;
             this.button3.Text = "Mostrar Empleado";
             this.button3.UseVisualStyleBackColor = true;
@@ -207,7 +207,7 @@
             // 
             this.button4.Location = new System.Drawing.Point(864, 203);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(143, 23);
+            this.button4.Size = new System.Drawing.Size(143, 35);
             this.button4.TabIndex = 19;
             this.button4.Text = "Mostrar Empleados";
             this.button4.UseVisualStyleBackColor = true;
@@ -239,6 +239,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Empleados";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
