@@ -142,30 +142,20 @@ namespace Empleados
 
         private void button4_Click(object sender, EventArgs e)
         {
+            // Limpiar el DataGridView antes de mostrar los resultados
             dataGridView1.Rows.Clear();
 
-            if (comboBoxNoEmpleado.SelectedIndex == -1)
+            foreach (Empleado empleado in listaEmpleados)
             {
-                MessageBox.Show("Por favor, selecciona un empleado.");
-                return;
-            }
-
-            int numeroEmpleadoSeleccionado = (int)comboBoxNoEmpleado.SelectedItem;
-
-            Empleado empleadoSeleccionado = listaEmpleados.FirstOrDefault(emp => emp.NumeroEmpleado == numeroEmpleadoSeleccionado);
-
-            if (empleadoSeleccionado.Equals(default(Empleado)))
-            {
-                MessageBox.Show("Empleado no encontrado.");
-                return;
-            }
-
-            foreach (var par in empleadoSeleccionado.HorasTrabajadasPorMes)
-            {
-                decimal salarioMes = empleadoSeleccionado.SueldoPorHora * par.Value;
-                dataGridView1.Rows.Add(empleadoSeleccionado.NumeroEmpleado, empleadoSeleccionado.NombreCompleto, empleadoSeleccionado.SueldoPorHora, par.Key, par.Value, salarioMes);
+                // Agregar los datos del empleado al DataGridView
+                foreach (var par in empleado.HorasTrabajadasPorMes)
+                {
+                    decimal salarioMes = empleado.SueldoPorHora * par.Value;
+                    dataGridView1.Rows.Add(empleado.NumeroEmpleado, empleado.NombreCompleto, empleado.SueldoPorHora, par.Key, par.Value, salarioMes);
+                }
             }
         }
+
 
 
 
