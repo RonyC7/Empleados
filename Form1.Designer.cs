@@ -34,6 +34,12 @@
             this.textBoxSueldo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NoEmpleados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SueldoHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HorasTrabajadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalarioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxHorasMes = new System.Windows.Forms.TextBox();
             this.textBoxMes = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,12 +54,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.NoEmpleados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SueldoHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HorasTrabajadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalarioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,12 +80,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Aqua;
             this.button1.Location = new System.Drawing.Point(374, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 24);
             this.button1.TabIndex = 3;
             this.button1.Text = "Ingresar Datos";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
@@ -104,6 +105,48 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(980, 199);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // NoEmpleados
+            // 
+            this.NoEmpleados.HeaderText = "No Empleado";
+            this.NoEmpleados.MinimumWidth = 6;
+            this.NoEmpleados.Name = "NoEmpleados";
+            this.NoEmpleados.Width = 125;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre empleado";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 125;
+            // 
+            // SueldoHora
+            // 
+            this.SueldoHora.HeaderText = "Sueldo Por Hora";
+            this.SueldoHora.MinimumWidth = 6;
+            this.SueldoHora.Name = "SueldoHora";
+            this.SueldoHora.Width = 125;
+            // 
+            // Mes
+            // 
+            this.Mes.HeaderText = "Mes de trabajo";
+            this.Mes.MinimumWidth = 6;
+            this.Mes.Name = "Mes";
+            this.Mes.Width = 125;
+            // 
+            // HorasTrabajadas
+            // 
+            this.HorasTrabajadas.HeaderText = "Total Horas Trabajadas";
+            this.HorasTrabajadas.MinimumWidth = 6;
+            this.HorasTrabajadas.Name = "HorasTrabajadas";
+            this.HorasTrabajadas.Width = 125;
+            // 
+            // SalarioTotal
+            // 
+            this.SalarioTotal.HeaderText = "Salario Total";
+            this.SalarioTotal.MinimumWidth = 6;
+            this.SalarioTotal.Name = "SalarioTotal";
+            this.SalarioTotal.Width = 125;
             // 
             // textBoxHorasMes
             // 
@@ -200,80 +243,42 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Aqua;
             this.button2.Location = new System.Drawing.Point(869, 26);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 29);
             this.button2.TabIndex = 17;
             this.button2.Text = "Ingresar Datos";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.PaleGreen;
             this.button3.Location = new System.Drawing.Point(632, 203);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 35);
             this.button3.TabIndex = 18;
             this.button3.Text = "Mostrar Empleado";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Aqua;
             this.button4.Location = new System.Drawing.Point(864, 203);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(143, 35);
             this.button4.TabIndex = 19;
             this.button4.Text = "Mostrar Empleados";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // NoEmpleados
-            // 
-            this.NoEmpleados.HeaderText = "No Empleado";
-            this.NoEmpleados.MinimumWidth = 6;
-            this.NoEmpleados.Name = "NoEmpleados";
-            this.NoEmpleados.Width = 125;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre empleado";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 125;
-            // 
-            // SueldoHora
-            // 
-            this.SueldoHora.HeaderText = "Sueldo Por Hora";
-            this.SueldoHora.MinimumWidth = 6;
-            this.SueldoHora.Name = "SueldoHora";
-            this.SueldoHora.Width = 125;
-            // 
-            // Mes
-            // 
-            this.Mes.HeaderText = "Mes de trabajo";
-            this.Mes.MinimumWidth = 6;
-            this.Mes.Name = "Mes";
-            this.Mes.Width = 125;
-            // 
-            // HorasTrabajadas
-            // 
-            this.HorasTrabajadas.HeaderText = "Total Horas Trabajadas";
-            this.HorasTrabajadas.MinimumWidth = 6;
-            this.HorasTrabajadas.Name = "HorasTrabajadas";
-            this.HorasTrabajadas.Width = 125;
-            // 
-            // SalarioTotal
-            // 
-            this.SalarioTotal.HeaderText = "Salario Total";
-            this.SalarioTotal.MinimumWidth = 6;
-            this.SalarioTotal.Name = "SalarioTotal";
-            this.SalarioTotal.Width = 125;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(1024, 461);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
